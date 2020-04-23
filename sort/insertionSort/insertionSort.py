@@ -6,7 +6,7 @@ def insertionSort(vector):
         index = x
 
         while index > 0 and vector[index-1] > element:
-            vector[index], vector[index-1] = vector[index-1], vector[index]
+            vector[index] = vector[index-1]
             index -= 1
         else:
             vector[index] = element

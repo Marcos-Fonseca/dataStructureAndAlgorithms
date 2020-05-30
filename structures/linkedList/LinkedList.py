@@ -20,11 +20,21 @@ class LinledList():
     def insert(self, element, index):
         pass
 
-    def removeAt(self, element):
+    def removeAt(self, index):
         pass
 
     def getElementAt(self, index):
-        pass
+        position = 0
+        pointer = self.head
+        
+        while position < index and pointer.next != None:
+            pointer = pointer.next
+            position += 1
+
+        if position == index:
+            return pointer.element
+        else:
+            return None
 
     def indexOf(self, index):
         pass
@@ -49,5 +59,8 @@ if __name__ == "__main__":
 
     for x in range(10):
         list.push(x)
-
-    print(list)
+    
+    assert list.__str__() == f'{[x for x in range(10)]}'
+    assert list.getElementAt(0) == 0
+    assert list.getElementAt(4) == 4
+    assert list.getElementAt(11) == None

@@ -5,13 +5,13 @@ class LinledList():
             self.next = None
 
     def __init__(self):
-        self.root = None
+        self.head = None
 
     def push(self, element):
-        if self.root == None:
-            self.root = self.Node(element)
+        if self.head == None:
+            self.head = self.Node(element)
         else:
-            pointer = self.root
+            pointer = self.head
             while pointer.next != None:
                 pointer = pointer.next
 
@@ -30,12 +30,12 @@ class LinledList():
         pass
 
     def __str__(self):
-        if self.root == None:
+        if self.head == None:
             return '[]'
         else:
             printList = '['
 
-            pointer = self.root
+            pointer = self.head
             while pointer.next != None:
                 printList += f'{pointer.element}, '
                 pointer = pointer.next

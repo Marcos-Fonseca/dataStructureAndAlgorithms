@@ -6,6 +6,7 @@ class LinledList():
 
     def __init__(self):
         self.head = None
+        self.count = 0
 
     def push(self, element):
         if self.head == None:
@@ -16,6 +17,8 @@ class LinledList():
                 pointer = pointer.next
 
             pointer.next = self.Node(element)
+
+        self.count += 1
             
     def insert(self, element, index):
         pass
@@ -24,17 +27,14 @@ class LinledList():
         pass
 
     def getElementAt(self, index):
-        position = 0
-        pointer = self.head
-        
-        while position < index and pointer.next != None:
-            pointer = pointer.next
-            position += 1
-
-        if position == index:
-            return pointer.element
-        else:
+        if index < 0 or index > self.count:
             return None
+        else:
+            pointer = self.head
+            for x in range(index):
+                pointer = pointer.next
+
+            return pointer.element
 
     def indexOf(self, index):
         pass

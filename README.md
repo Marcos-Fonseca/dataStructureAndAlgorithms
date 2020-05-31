@@ -1,12 +1,17 @@
 # dataStructure And Algorithms
 ==============================
 
+to run codes, require
 * python 3.6
 
 sort
 ====
+* bubble
 * insertion
-* selection
 * merge
 * quick
-* bubble
+* selection
+
+structures
+===============
+* linked list

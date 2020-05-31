@@ -39,7 +39,21 @@ class LinledList():
             self.count += 1
             
     def removeAt(self, index):
-        pass
+        if index >= 0 and index < self.count:
+            if index == 0:
+                pointer = self.head.next
+                del(self.head)
+                self.head = pointer
+            
+            else:
+                pointer = self.head
+                for x in range(index+1):
+                    if x == index-1:
+                        removeNode = pointer.next
+                        pointer.next = pointer.next.next
+                        del(removeNode)
+                    else:
+                        pointer = pointer.next
 
     def getElementAt(self, index):
         if index < 0 or index > self.count:
@@ -90,3 +104,8 @@ if __name__ == "__main__":
     assert list2.__str__() == '[18, 0]'
     list2.insert(17, 2)
     assert list2.__str__() == '[18, 0, 17]'
+
+    list2.removeAt(1)
+    assert list2.__str__() == '[18, 17]'
+    list2.removeAt(0)
+    assert list2.__str__() == '[17]'

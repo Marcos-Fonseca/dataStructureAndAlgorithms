@@ -55,6 +55,8 @@ class LinledList():
                     else:
                         pointer = pointer.next
 
+            self.count -= 1
+
     def getElementAt(self, index):
         if index < 0 or index > self.count:
             return None

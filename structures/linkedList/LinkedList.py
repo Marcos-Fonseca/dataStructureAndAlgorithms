@@ -25,8 +25,9 @@ class LinledList():
             newNode = self.Node(element)
             newNode.next = self.head
             self.head = newNode
+            self.count += 1
 
-        elif index > 0 and index < self.count:
+        elif index > 0 and index <= self.count:
             pointer = self.head
 
             for x in range(index-1):
@@ -35,7 +36,8 @@ class LinledList():
             newNode = self.Node(element)
             newNode.next = pointer.next
             pointer.next = newNode
-    
+            self.count += 1
+            
     def removeAt(self, index):
         pass
 
@@ -84,4 +86,7 @@ if __name__ == "__main__":
     list1.insert(18, 0)
     assert list1.__str__() == '[18, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]'
 
-    list2.insert(18)
+    list2.insert(18, 0)
+    assert list2.__str__() == '[18, 0]'
+    list2.insert(17, 2)
+    assert list2.__str__() == '[18, 0, 17]'

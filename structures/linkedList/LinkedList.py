@@ -65,8 +65,22 @@ class LinledList():
 
             return pointer.element
 
-    def indexOf(self, index):
-        pass
+    def indexOf(self, element):
+        pointer = self.head
+        position = 0
+
+        while pointer.next != None:
+            if pointer.element == element:
+                return position
+            else:
+                pointer = pointer.next
+                position += 1
+
+        if pointer.element == element:
+            return position
+
+        # if the element does not exist, returns -1
+        return -1
 
     def __str__(self):
         if self.head == None:
@@ -84,6 +98,8 @@ class LinledList():
             return printList
 
 if __name__ == "__main__":
+    # tests
+
     list1 = LinledList()
     for x in range(10):
         list1.push(x)
@@ -109,3 +125,9 @@ if __name__ == "__main__":
     assert list2.__str__() == '[18, 17]'
     list2.removeAt(0)
     assert list2.__str__() == '[17]'
+
+    assert list1.indexOf(18) == 0
+    assert list1.indexOf(0) == 1
+    assert list1.indexOf(1) == 2
+    assert list1.indexOf(2) == 3
+    assert list1.indexOf(32) == -1
